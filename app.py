@@ -1,4 +1,1 @@
-def hello():
-    return "Hello from Jenkins Python App 2026"
-
-print(hello())
+print("Hello from Python app - Jenkins pipeline working!")
