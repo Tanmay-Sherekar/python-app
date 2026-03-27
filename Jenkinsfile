@@ -5,23 +5,18 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/Tanmay-Sherekar/python-jenkins-app.git'
+                git branch: 'main',
+                url: 'https://github.com/your-username/python-jenkins-app.git'
             }
         }
 
-        stage('Install Python') {
+        stage('Check Python') {
             steps {
                 sh 'python3 --version'
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh 'pip3 install -r requirements.txt'
-            }
-        }
-
-        stage('Run Python App') {
+        stage('Run App') {
             steps {
                 sh 'python3 app.py'
             }
