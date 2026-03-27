@@ -3,28 +3,27 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
+        stage('Clone GitHub Repo') {
             steps {
-                git branch: 'main',
-                url: 'https://github.com/Tanmay-Sherekar/python-app.git'
+                git 'https://github.com/Tanmay-Sherekar/python-app.git'
             }
         }
 
-        stage('Check Python') {
+        stage('Check Python Version') {
             steps {
                 sh 'python3 --version'
             }
         }
 
-        stage('Run App') {
+        stage('Install Dependencies') {
             steps {
-                sh 'python3 app.py'
+                sh 'pip3 install -r requirements.txt'
             }
         }
 
-        stage('Run Tests') {
+        stage('Run Python App') {
             steps {
-                sh 'pytest'
+                sh 'python3 app.py'
             }
         }
     }
